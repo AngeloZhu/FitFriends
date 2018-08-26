@@ -1,0 +1,42 @@
+h3 {
+	font-size: 100px;
+  margin-right: 50%;
+  margin-left: 8%;
+}
+h2 {
+  font-size: 60px;
+  margin-right: 40%;
+  margin-left: 8%;
+}
+body {
+	width: 100wh;
+	height: 90vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #99ffe6, #3333cc, #ff6633, #ccff33);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+}
+
+
+ @media screen and (min-width: 20em) 
+ {
+    br 
+    { 
+       display: none;   // hide the BR tag for wider screens (i.e. disable the line break)
+    }
+ }
