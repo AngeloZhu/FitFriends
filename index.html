@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  Damian Hii</title>
+
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Encode+Sans');
+  </style>
+</head>
+
+<body>
+
+  <head>
+    <title>Bootstrap Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="js/chosen_v1.8.3/docsupport/style.css" rel="stylesheet" />
+    <link href="js/chosen_v1.8.3/chosen.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/node_modules/moment/min/moment.min.js"></script>
+    <script src="js/combodate.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/chosen_v1.8.3/chosen.jquery.js"></script>
+
+  </head>
+
+  <nav class="navbar navbar-color head_font navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="frontpage.html"><font color = "white">FitFriends</font></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="aboutus.html"><font color="white">About</font><font></a></li>
+      </ul>
+      <ul class = "nav navbar-nav navbar-right">
+        <li><a href = "#setting"><i class="fa fa-cog" style="color:white;"></a></i>
+          <li><a href = "faq.html"><i class="fa fa-question" style="color:white;"></i></a></li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="col-sm-2">
+      <form action="" id="availability" onsubmit="updatePreferences()">
+      <header>
+        <h1>Find a FitFriend</h1>
+      </header>
+
+      <div>
+        <label class="desc" id="dayTitle">Day</label>
+        <select name="day" id="day" class="chosen-select" multiple>
+          <option value="mon">Monday</option>
+          <option value="tue">Tuesday</option>
+          <option value="wed">Wednesday</option>
+          <option value="thu">Thursday</option>
+          <option value="fri">Friday</option>
+          <option value="sat">Saturday</option>
+          <option value="sun">Sunday</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="desc" id="startTimeTitle">Start Time</label>
+        <input id="startTime" data-format="HH:mm" data-template="HH : mm" name="datetime" type="text">
+        <script>
+        $(function(){
+          $('#startTime').combodate({
+            firstItem: 'name',
+            minuteStep: 30
+          });
+        });
+        </script>
+      </div>
+
+      <div>
+        <label class="desc" id="endTimeTitle">End Time</label>
+        <input id="endTime" data-format="HH:mm" data-template="HH : mm" name="datetime" type="text">
+        <script>
+        $(function(){
+          $('#endTime').combodate({
+            firstItem: 'name',
+            minuteStep: 30
+          });
+        });
+        </script>
+      </div>
+
+      <div>
+        <label class="desc" id="preference">Looking for</label>
+        <select name="preference">
+          <option value="none">None</option>
+          <option value="weightlifting">Weightlifting</option>
+          <option value="swimming">Swimming</option>
+          <option value="running">Running</option>
+          <option value="yoga">Yoga</option>
+          <option value="cycling">Cyclying</option>
+          <option value="zumba">Zumba</option>
+        </select>
+      </div>
+      <br><br>
+      <button type="button" id="submit">Submit</button>
+
+    </form>
+    </div>
+
+<div style="margin-left:16%;padding:1px
+            16px;height:1000px;">
+  <h2>FitFriends Found!</h2>
+  <h3>Click on a user to learn more</h3>
+  <script>
+    var names = ["Anthony", "Winston", "Angelo", "Damian"]
+    for (var i = 0; i < 20; i++){
+      document.write("<div class = 'col-sm-4'><div class = 'panel panel-default'><div class = 'panel-body'><h2 class = 'panel-title'>" + names[i % 4] + "</h2><p>Looking to run on Tuesday from 10 - 12</p><a href = '#'' class = 'btn btn-primary'>Connect</a></div>  </div></div>")
+    }
+  </script>
+  <!-- <div class = "col-sm-4">
+  <div class = "panel panel-default">
+    <img src="https://i.pinimg.com/originals/1b/78/82/1b7882a48f108dbaabfe08ed045ad852.png" alt="Panel image cap" style="width:150px;height:150px">
+    <div class = "panel-body">
+      <h2 class = "panel-title">Anthony</h2>
+      <p>Looking to run on Tuesday from 10 - 12</p>
+      <a href = "#" class = "btn btn-primary">Connect</a>
+    </div>
+  </div>
+  </div>
+  <div class = "col-sm-4">
+  <div class = "panel panel-default">
+    <img src="https://i.pinimg.com/originals/1b/78/82/1b7882a48f108dbaabfe08ed045ad852.png" alt="Panel image cap" style="width:150px;height:150px">
+    <div class = "panel-body">
+      <h2 class = "panel-title">Anthony</h2>
+      <p>Looking to run on Tuesday from 10 - 12</p>
+      <a href = "#" class = "btn btn-primary">Connect</a>
+    </div>
+  </div>
+  </div> -->
+</div>
+
+<script  src="js/index.js"></script>
+</body>
+</html>

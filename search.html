@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<link href="js/chosen_v1.8.3/docsupport/style.css" rel="stylesheet" />
+	<link href="js/chosen_v1.8.3/chosen.css" rel="stylesheet" />
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<script src="js/node_modules/moment/min/moment.min.js"></script>
+ 	<script src="js/combodate.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/chosen_v1.8.3/chosen.jquery.js"></script>
+</head>
+<body>
+
+<form action="" id="availability" onsubmit="updatePreferences()">
+	<header>
+		<h1>Find a FitFriend</h1>
+	</header>
+
+	<div>
+		<label class="desc" id="dayTitle">Day</label>
+		<select name="day" id="day" class="chosen-select" multiple>
+			<option value="mon">Monday</option>
+			<option value="tue">Tuesday</option>
+			<option value="wed">Wednesday</option>
+			<option value="thu">Thursday</option>
+			<option value="fri">Friday</option>
+			<option value="sat">Saturday</option>
+			<option value="sun">Sunday</option>
+		</select>
+	</div>
+
+	<div>
+		<label class="desc" id="startTimeTitle">Start Time</label>
+		<input id="startTime" data-format="HH:mm" data-template="HH : mm" name="datetime" type="text">
+		<script>
+		$(function(){
+			$('#startTime').combodate({
+				firstItem: 'name',
+				minuteStep: 30
+			});
+		});
+		</script>
+	</div>
+
+	<div>
+		<label class="desc" id="endTimeTitle">End Time</label>
+		<input id="endTime" data-format="HH:mm" data-template="HH : mm" name="datetime" type="text">
+		<script>
+		$(function(){
+			$('#endTime').combodate({
+				firstItem: 'name',
+				minuteStep: 30
+			});
+		});
+		</script>
+	</div>
+
+	<div>
+		<label class="desc" id="preference">Looking for</label>
+		<select name="preference">
+			<option value="none">None</option>
+			<option value="weightlifting">Weightlifting</option>
+			<option value="swimming">Swimming</option>
+			<option value="running">Running</option>
+			<option value="yoga">Yoga</option>
+			<option value="cycling">Cyclying</option>
+			<option value="zumba">Zumba</option>
+		</select>
+	</div>
+	<br><br>
+	<button type="button" id="submit">Submit</button>
+
+</form>
+
+
+</body>
+</html>
+
+
